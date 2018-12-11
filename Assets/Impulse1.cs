@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Impulse1 : MonoBehaviour {
-	public float pushF, pullFPlayer, pullFObjects, maxDist, minDistPull;
+	public float pushF, pullFPlayer, pullFObjects, maxDist, minDistPull, sFriction, dFriction;
 	public LayerMask mask;
 	public GameObject indicator;
 	public Transform objectPos;
+	public PhysicMaterial playerPhysMat;
 	public static Impulse1 instance;
 
 	private Rigidbody rb, targetRb;
@@ -14,6 +15,7 @@ public class Impulse1 : MonoBehaviour {
 	private RaycastHit hit;
 	private Transform camTransform;
 	private PulledObj objS;
+	private Move moveS;
 
 	private void Awake()
 	{
@@ -24,6 +26,9 @@ public class Impulse1 : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		camTransform = Camera.main.transform;
 		myMass = rb.mass;
+		playerPhysMat.staticFriction = sFriction;
+		playerPhysMat.dynamicFriction = dFriction;
+		moveS = FindObjectOfType<Move>();
 	}
 	
 	void Update () {
@@ -49,6 +54,7 @@ public class Impulse1 : MonoBehaviour {
 		{
 			if (targetRb == null)
 			{
+				NoFriction();
 				rb.AddForce(-camTransform.forward * pushF, ForceMode.Impulse);
 			}
 			else
@@ -65,6 +71,7 @@ public class Impulse1 : MonoBehaviour {
 			objS = null;
 			if (targetRb == null)
 			{
+				NoFriction();
 				rb.AddForce(camTransform.forward * pullFPlayer, ForceMode.Impulse);
 			}
 		}
@@ -90,6 +97,23 @@ public class Impulse1 : MonoBehaviour {
 			if(objS != null) objS.CancelPull();
 			objS = null;
 		}
+	}
+
+	private void NoFriction()
+	{
+		StopAllCoroutines();
+		StartCoroutine(NoFrictionCr());
+	}
+
+	IEnumerator NoFrictionCr()
+	{
+		playerPhysMat.staticFriction = 0f;
+		playerPhysMat.dynamicFriction = 0f;
+		moveS.canWalk = false;
+		yield return new WaitForSeconds(1f);
+		playerPhysMat.staticFriction = sFriction;
+		playerPhysMat.dynamicFriction = dFriction;
+		moveS.canWalk = true;
 	}
 }
  

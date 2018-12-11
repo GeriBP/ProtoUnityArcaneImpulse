@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Move : MonoBehaviour {
 	public LayerMask groundRaycastMask;
-	public float speed, jumpF, airSpeed;
+	public float speed, jumpF, airSpeed, maxSpeed;
 
 	private Rigidbody rb;
 	private bool grounded = false;
 	private bool canJump = true;
+	[HideInInspector]
+	public bool canWalk = true;
 	private RaycastHit hit;
 
 	void Start () {
@@ -16,15 +18,15 @@ public class Move : MonoBehaviour {
 	}
 	
 	void Update () {
-		Vector3 input = (Input.GetAxisRaw("Vertical") * transform.forward + Input.GetAxisRaw("Horizontal") * transform.right).normalized;
+		Vector3 input = (Input.GetAxis("Vertical") * transform.forward + Input.GetAxis("Horizontal") * transform.right).normalized;
 		grounded = Grounded();
-		if (grounded)
+		if (grounded && canWalk)
 		{
 			Vector3 temp = Vector3.Cross(hit.normal, input);
 			input = Vector3.Cross(temp, hit.normal);
 			rb.velocity = input * speed;
 		}
-		else
+		else if(!grounded)
 		{
 			rb.AddForce(input * airSpeed * Time.deltaTime, ForceMode.Acceleration);
 		}
@@ -33,6 +35,8 @@ public class Move : MonoBehaviour {
 		{
 			StartCoroutine(JumpCr());
 		}
+
+		rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 	}
 
 	bool Grounded()

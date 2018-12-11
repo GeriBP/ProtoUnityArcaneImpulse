@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: 02aafa2708eb308498ae7c5a0d909747
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Big Platform
+    100002: Big Platform001
+    100004: Bridge
+    100006: Column 003
+    100008: Column 004
+    100010: Column 005
+    100012: Column 006
+    100014: Column 007
+    100016: Column 008
+    100018: Column 009
+    100020: Column 01
+    100022: Column 010
+    100024: Column 02
+    100026: Cube Platform
+    100028: Cube Platform 02
+    100030: Huge Wall
+    100032: Main Tower
+    100034: Main Tower 1st floor
+    100036: Main Tower 2nd floor
+    100038: Main Tower 2nd smaller floor
+    100040: Main Tower 3rd floor
+    100042: Main Tower 4th floor
+    100044: Main Tower Roof
+    100046: Plane001
+    100048: //RootNode
+    100050: Small Platform
+    100052: Smaller Tower
+    100054: Smaller Tower 1st floor
+    100056: Smaller Tower 2nd floor
+    100058: Smaller Tower001
+    100060: Smaller Tower002
+    100062: Stairs
+    100064: Stairs001
+    100066: Stairs002
+    100068: Stairs003
+    100070: Stairs004
+    100072: Stairs005
+    100074: Stairs006
+    100076: Stairs007
+    100078: Stairs008
+    100080: Stairs009
+    100082: Stairs010
+    100084: Stairs011
+    100086: Stairs012
+    100088: Stairs013
+    100090: Stairs014
+    100092: Stairs015
+    100094: Stairs016
+    100096: Stairs017
+    100098: Stairs018
+    100100: Stairs019
+    100102: Stairs020
+    100104: Stairs021
+    100106: Stairs022
+    100108: Stairs023
+    100110: Stairs024
+    100112: Stairs025
+    100114: Stairs026
+    100116: Stairs027
+    100118: Stairs028
+    100120: Stairs029
+    100122: Stairs030
+    100124: Stairs031
+    100126: Stairs032
+    100128: Stairs033
+    100130: Stairs034
+    100132: Stairs035
+    100134: Stairs036
+    100136: Stairs037
+    100138: Stairs038
+    100140: Stairs039
+    100142: Stairs040
+    100144: Stairs041
+    400000: Big Platform
+    400002: Big Platform001
+    400004: Bridge
+    400006: Column 003
+    400008: Column 004
+    400010: Column 005
+    400012: Column 006
+    400014: Column 007
+    400016: Column 008
+    400018: Column 009
+    400020: Column 01
+    400022: Column 010
+    400024: Column 02
+    400026: Cube Platform
+    400028: Cube Platform 02
+    400030: Huge Wall
+    400032: Main Tower
+    400034: Main Tower 1st floor
+    400036: Main Tower 2nd floor
+    400038: Main Tower 2nd smaller floor
+    400040: Main Tower 3rd floor
+    400042: Main Tower 4th floor
+    400044: Main Tower Roof
+    400046: Plane001
+    400048: //RootNode
+    400050: Small Platform
+    400052: Smaller Tower
+    400054: Smaller Tower 1st floor
+    400056: Smaller Tower 2nd floor
+    400058: Smaller Tower001
+    400060: Smaller Tower002
+    400062: Stairs
+    400064: Stairs001
+    400066: Stairs002
+    400068: Stairs003
+    400070: Stairs004
+    400072: Stairs005
+    400074: Stairs006
+    400076: Stairs007
+    400078: Stairs008
+    400080: Stairs009
+    400082: Stairs010
+    400084: Stairs011
+    400086: Stairs012
+    400088: Stairs013
+    400090: Stairs014
+    400092: Stairs015
+    400094: Stairs016
+    400096: Stairs017
+    400098: Stairs018
+    400100: Stairs019
+    400102: Stairs020
+    400104: Stairs021
+    400106: Stairs022
+    400108: Stairs023
+    400110: Stairs024
+    400112: Stairs025
+    400114: Stairs026
+    400116: Stairs027
+    400118: Stairs028
+    400120: Stairs029
+    400122: Stairs030
+    400124: Stairs031
+    400126: Stairs032
+    400128: Stairs033
+    400130: Stairs034
+    400132: Stairs035
+    400134: Stairs036
+    400136: Stairs037
+    400138: Stairs038
+    400140: Stairs039
+    400142: Stairs040
+    400144: Stairs041
+    2100000: No Name
+    2300000: Big Platform
+    2300002: Big Platform001
+    2300004: Bridge
+    2300006: Column 003
+    2300008: Column 004
+    2300010: Column 005
+    2300012: Column 006
+    2300014: Column 007
+    2300016: Column 008
+    2300018: Column 009
+    2300020: Column 01
+    2300022: Column 010
+    2300024: Column 02
+    2300026: Cube Platform
+    2300028: Cube Platform 02
+    2300030: Huge Wall
+    2300032: Main Tower
+    2300034: Main Tower 1st floor
+    2300036: Main Tower 2nd floor
+    2300038: Main Tower 2nd smaller floor
+    2300040: Main Tower 3rd floor
+    2300042: Main Tower 4th floor
+    2300044: Main Tower Roof
+    2300046: Plane001
+    2300048: Small Platform
+    2300050: Smaller Tower
+    2300052: Smaller Tower 1st floor
+    2300054: Smaller Tower 2nd floor
+    2300056: Smaller Tower001
+    2300058: Smaller Tower002
+    2300060: Stairs
+    2300062: Stairs001
+    2300064: Stairs002
+    2300066: Stairs003
+    2300068: Stairs004
+    2300070: Stairs005
+    2300072: Stairs006
+    2300074: Stairs007
+    2300076: Stairs008
+    2300078: Stairs009
+    2300080: Stairs010
+    2300082: Stairs011
+    2300084: Stairs012
+    2300086: Stairs013
+    2300088: Stairs014
+    2300090: Stairs015
+    2300092: Stairs016
+    2300094: Stairs017
+    2300096: Stairs018
+    2300098: Stairs019
+    2300100: Stairs020
+    2300102: Stairs021
+    2300104: Stairs022
+    2300106: Stairs023
+    2300108: Stairs024
+    2300110: Stairs025
+    2300112: Stairs026
+    2300114: Stairs027
+    2300116: Stairs028
+    2300118: Stairs029
+    2300120: Stairs030
+    2300122: Stairs031
+    2300124: Stairs032
+    2300126: Stairs033
+    2300128: Stairs034
+    2300130: Stairs035
+    2300132: Stairs036
+    2300134: Stairs037
+    2300136: Stairs038
+    2300138: Stairs039
+    2300140: Stairs040
+    2300142: Stairs041
+    3300000: Big Platform
+    3300002: Big Platform001
+    3300004: Bridge
+    3300006: Column 003
+    3300008: Column 004
+    3300010: Column 005
+    3300012: Column 006
+    3300014: Column 007
+    3300016: Column 008
+    3300018: Column 009
+    3300020: Column 01
+    3300022: Column 010
+    3300024: Column 02
+    3300026: Cube Platform
+    3300028: Cube Platform 02
+    3300030: Huge Wall
+    3300032: Main Tower
+    3300034: Main Tower 1st floor
+    3300036: Main Tower 2nd floor
+    3300038: Main Tower 2nd smaller floor
+    3300040: Main Tower 3rd floor
+    3300042: Main Tower 4th floor
+    3300044: Main Tower Roof
+    3300046: Plane001
+    3300048: Small Platform
+    3300050: Smaller Tower
+    3300052: Smaller Tower 1st floor
+    3300054: Smaller Tower 2nd floor
+    3300056: Smaller Tower001
+    3300058: Smaller Tower002
+    3300060: Stairs
+    3300062: Stairs001
+    3300064: Stairs002
+    3300066: Stairs003
+    3300068: Stairs004
+    3300070: Stairs005
+    3300072: Stairs006
+    3300074: Stairs007
+    3300076: Stairs008
+    3300078: Stairs009
+    3300080: Stairs010
+    3300082: Stairs011
+    3300084: Stairs012
+    3300086: Stairs013
+    3300088: Stairs014
+    3300090: Stairs015
+    3300092: Stairs016
+    3300094: Stairs017
+    3300096: Stairs018
+    3300098: Stairs019
+    3300100: Stairs020
+    3300102: Stairs021
+    3300104: Stairs022
+    3300106: Stairs023
+    3300108: Stairs024
+    3300110: Stairs025
+    3300112: Stairs026
+    3300114: Stairs027
+    3300116: Stairs028
+    3300118: Stairs029
+    3300120: Stairs030
+    3300122: Stairs031
+    3300124: Stairs032
+    3300126: Stairs033
+    3300128: Stairs034
+    3300130: Stairs035
+    3300132: Stairs036
+    3300134: Stairs037
+    3300136: Stairs038
+    3300138: Stairs039
+    3300140: Stairs040
+    3300142: Stairs041
+    4300000: Cube Platform
+    4300002: Cube Platform 02
+    4300004: Small Platform
+    4300006: Big Platform
+    4300008: Main Tower
+    4300010: Smaller Tower
+    4300012: Bridge
+    4300014: Smaller Tower 1st floor
+    4300016: Huge Wall
+    4300018: Main Tower 1st floor
+    4300020: Smaller Tower 2nd floor
+    4300022: Column 01
+    4300024: Column 02
+    4300026: Main Tower 2nd floor
+    4300028: Column 003
+    4300030: Column 004
+    4300032: Main Tower 3rd floor
+    4300034: Main Tower 2nd smaller floor
+    4300036: Stairs
+    4300038: Stairs001
+    4300040: Stairs002
+    4300042: Stairs003
+    4300044: Stairs004
+    4300046: Stairs005
+    4300048: Stairs006
+    4300050: Stairs007
+    4300052: Stairs008
+    4300054: Stairs009
+    4300056: Stairs010
+    4300058: Stairs011
+    4300060: Stairs012
+    4300062: Stairs013
+    4300064: Stairs014
+    4300066: Stairs015
+    4300068: Stairs016
+    4300070: Stairs017
+    4300072: Stairs018
+    4300074: Stairs019
+    4300076: Stairs020
+    4300078: Stairs021
+    4300080: Stairs022
+    4300082: Stairs023
+    4300084: Stairs024
+    4300086: Stairs025
+    4300088: Stairs026
+    4300090: Stairs027
+    4300092: Stairs028
+    4300094: Stairs029
+    4300096: Stairs030
+    4300098: Stairs031
+    4300100: Stairs032
+    4300102: Stairs033
+    4300104: Stairs034
+    4300106: Stairs035
+    4300108: Stairs036
+    4300110: Stairs037
+    4300112: Stairs038
+    4300114: Stairs039
+    4300116: Smaller Tower001
+    4300118: Column 005
+    4300120: Column 006
+    4300122: Column 007
+    4300124: Column 008
+    4300126: Main Tower Roof
+    4300128: Stairs040
+    4300130: Smaller Tower002
+    4300132: Stairs041
+    4300134: Big Platform001
+    4300136: Main Tower 4th floor
+    4300138: Column 009
+    4300140: Column 010
+    4300142: Plane001
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
