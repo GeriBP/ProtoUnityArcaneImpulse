@@ -4,33 +4,27 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour {
 	public Camera visor;
-	public float verticalSpeed, horizontalSpeed;
+	public float verticalSpeed, horizontalSpeed, viewRange;
+	private float rotX, rotY;
 
 	private bool canLook = true;
 
 	void Start () {
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
+		rotX = 0f;
+		rotY = 0f;
 	}
 	
 	void Update () {
 		if (canLook)
 		{
-			float tempx = visor.transform.localEulerAngles.x;
-			float tempy = visor.transform.localEulerAngles.y;
-			float tempz = visor.transform.localEulerAngles.z;
+			rotX += Input.GetAxis("Mouse X") * horizontalSpeed * Time.deltaTime;
+			rotY += Input.GetAxis("Mouse Y") * verticalSpeed * Time.deltaTime;
+			rotY = Mathf.Clamp(rotY, -viewRange, viewRange);
 
-			visor.transform.Rotate(-verticalSpeed * Input.GetAxis("Mouse Y") * Time.deltaTime, 0.0f, 0.0f);
-			transform.Rotate(0.0f, horizontalSpeed * Input.GetAxis("Mouse X") * Time.deltaTime, 0.0f);
-
-			if (visor.transform.localEulerAngles.x > 85.0f && visor.transform.localEulerAngles.x < 200.0f)
-			{
-				visor.transform.localEulerAngles = new Vector3(tempx, tempy, tempz);
-			}
-			else if (visor.transform.localEulerAngles.x > 200.0f && visor.transform.localEulerAngles.x < 281.0f)
-			{
-				visor.transform.localEulerAngles = new Vector3(tempx, tempy, tempz);
-			}
+			visor.transform.localRotation = Quaternion.Euler(-rotY, 0f, 0f);
+			transform.rotation = Quaternion.Euler(0f, rotX, 0f);
 		}
 	}
 }

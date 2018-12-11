@@ -2227,6 +2227,7 @@ MonoBehaviour:
   visor: {fileID: 131270412}
   verticalSpeed: 15
   horizontalSpeed: 15
+  viewRange: 85
 --- !u!4 &1241110860
 Transform:
   m_ObjectHideFlags: 0
