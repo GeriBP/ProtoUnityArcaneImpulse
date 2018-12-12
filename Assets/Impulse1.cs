@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Impulse1 : MonoBehaviour {
-	public float pushF, pullFPlayer, pullFObjects, maxDist, minDistPull, sFriction, dFriction;
+	public float pushF, pullFPlayer, pullFObjects, maxDist, minDistPull, maxObjSpeed;
 	public LayerMask mask;
 	public GameObject indicator;
 	public Transform objectPos;
@@ -11,7 +11,6 @@ public class Impulse1 : MonoBehaviour {
 	public static Impulse1 instance;
 
 	private Rigidbody rb, targetRb;
-	private float myMass;
 	private RaycastHit hit;
 	private Transform camTransform;
 	private PulledObj objS;
@@ -25,9 +24,6 @@ public class Impulse1 : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		camTransform = Camera.main.transform;
-		myMass = rb.mass;
-		playerPhysMat.staticFriction = sFriction;
-		playerPhysMat.dynamicFriction = dFriction;
 		moveS = FindObjectOfType<Move>();
 	}
 	
@@ -35,11 +31,17 @@ public class Impulse1 : MonoBehaviour {
 		Physics.Raycast(camTransform.position, camTransform.forward, out hit, mask);
 		float dist = Vector3.Distance(hit.point, transform.position);
 
-		if (hit.transform != null && dist < maxDist)
+		if (hit.transform != null && dist < maxDist && objS == null)
 		{
 			indicator.SetActive(true);
 			indicator.transform.position = hit.point;
 			targetRb = hit.transform.GetComponent<Rigidbody>();
+			HandlePowerInput(dist);
+		}
+		else if (objS != null)
+		{
+			indicator.SetActive(true);
+			indicator.transform.position = objS.transform.position;
 			HandlePowerInput(dist);
 		}
 		else
@@ -52,17 +54,18 @@ public class Impulse1 : MonoBehaviour {
 	{
 		if (Input.GetButtonDown("Push"))
 		{
-			if (targetRb == null)
+			if (objS != null)
+			{
+				objS.CancelPull();
+				targetRb.AddForce(camTransform.forward * pushF, ForceMode.Impulse);
+			}
+			else if (targetRb == null)
 			{
 				NoFriction();
 				rb.AddForce(-camTransform.forward * pushF, ForceMode.Impulse);
 			}
 			else
 			{
-				if (objS != null)
-				{
-					objS.CancelPull();
-				}
 				targetRb.AddForce(camTransform.forward * pushF, ForceMode.Impulse);
 			}
 		}
@@ -79,9 +82,10 @@ public class Impulse1 : MonoBehaviour {
 		{
 			if (targetRb != null && objS == null)
 			{
-				if (dist > minDistPull)
+				if (Vector3.Distance(targetRb.transform.position, objectPos.position) > minDistPull)
 				{
 					targetRb.AddForce(-camTransform.forward * pullFObjects, ForceMode.Force);
+					targetRb.velocity = Vector3.ClampMagnitude(targetRb.velocity, maxObjSpeed);
 				}
 				else
 				{
@@ -102,17 +106,13 @@ public class Impulse1 : MonoBehaviour {
 	private void NoFriction()
 	{
 		StopAllCoroutines();
-		StartCoroutine(NoFrictionCr());
+		StartCoroutine(CantWalkCR());
 	}
 
-	IEnumerator NoFrictionCr()
+	IEnumerator CantWalkCR()
 	{
-		playerPhysMat.staticFriction = 0f;
-		playerPhysMat.dynamicFriction = 0f;
 		moveS.canWalk = false;
 		yield return new WaitForSeconds(1f);
-		playerPhysMat.staticFriction = sFriction;
-		playerPhysMat.dynamicFriction = dFriction;
 		moveS.canWalk = true;
 	}
 }

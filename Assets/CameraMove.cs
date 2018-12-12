@@ -10,8 +10,6 @@ public class CameraMove : MonoBehaviour {
 	private bool canLook = true;
 
 	void Start () {
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
 		rotX = 0f;
 		rotY = 0f;
 	}

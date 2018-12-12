@@ -12,13 +12,14 @@ public class Move : MonoBehaviour {
 	[HideInInspector]
 	public bool canWalk = true;
 	private RaycastHit hit;
+	private Vector3 input;
 
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 	}
 	
 	void Update () {
-		Vector3 input = (Input.GetAxis("Vertical") * transform.forward + Input.GetAxis("Horizontal") * transform.right).normalized;
+		input = (Input.GetAxis("Vertical") * transform.forward + Input.GetAxis("Horizontal") * transform.right).normalized;
 		grounded = Grounded();
 		if (grounded && canWalk)
 		{
@@ -26,7 +27,7 @@ public class Move : MonoBehaviour {
 			input = Vector3.Cross(temp, hit.normal);
 			rb.velocity = input * speed;
 		}
-		else if(!grounded)
+		else if(!grounded && canWalk)
 		{
 			rb.AddForce(input * airSpeed * Time.deltaTime, ForceMode.Acceleration);
 		}

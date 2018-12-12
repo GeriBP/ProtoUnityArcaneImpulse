@@ -34,12 +34,10 @@ public class PulledObj : MonoBehaviour {
 		while (isPulled && dist < Impulse1.instance.minDistPull + 0.5f)
 		{
 			dist = Vector3.Distance(target.position, transform.position);
-			if (Vector3.Distance(target.position, transform.position) > attraction)
+			if (Vector3.Distance(target.position, transform.position) > 0.05f)
 			{
 				Vector3 dir = (target.position - transform.position).normalized;
 				rb.MovePosition(transform.position + (dir * attraction * Mathf.Clamp(dist/ (Impulse1.instance.minDistPull + 0.5f), 0f, 1f)));
-				//Vector3 dir = (target.position - transform.position).normalized;
-				//rb.velocity = dir * attraction;
 			}
 			yield return null;
 		}
