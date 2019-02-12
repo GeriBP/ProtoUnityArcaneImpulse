@@ -244,9 +244,10 @@ GameObject:
   - component: {fileID: 7561221128416658507}
   - component: {fileID: 7561221128416658506}
   - component: {fileID: 7561221128416658510}
+  - component: {fileID: 2079503072}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,8 +377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visor: {fileID: 7561221129656785421}
-  verticalSpeed: 15
-  horizontalSpeed: 15
+  verticalSpeed: 100
+  horizontalSpeed: 100
   viewRange: 85
 --- !u!114 &7561221128416658510
 MonoBehaviour:
@@ -404,13 +405,28 @@ MonoBehaviour:
   indicator: {fileID: 1197872674}
   objectPos: {fileID: 7561221128612788795}
   playerPhysMat: {fileID: 13400000, guid: 635a969e56f89ae46a279cc1d76b6ccd, type: 2}
-  maxMana: 100
+  maxMana: 200
   pushCost: 20
   pullPlayerCost: 20
   pullObjCostIni: 5
   pullObjCostHold: 10
-  manaRecoveryTime: 1.5
-  manaRecoveryAmount: 75
+  manaRecoveryTime: 1
+  manaRecoveryAmount: 100
+--- !u!114 &2079503072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7561221128416658502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b489cdfb536d885438858028849c4b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 0}
+  maxHp: 100
+  fireBallDmg: 25
 --- !u!1 &7561221128482756038
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +814,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 3383
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

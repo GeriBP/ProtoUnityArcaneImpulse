@@ -60,6 +60,10 @@ public class Impulse1 : MonoBehaviour {
 			indicator.SetActive(false);
 		}
 
+        if (objS == null)
+        {
+            drainMana = false;
+        }
         if (drainMana)
         {
             currMana -= pullObjCostHold * Time.deltaTime;
@@ -121,7 +125,8 @@ public class Impulse1 : MonoBehaviour {
 				{
 					targetRb.velocity = Vector3.zero;
 					objS = targetRb.GetComponent<PulledObj>();
-					objS.GetPulled();
+                    if (objS != null) objS.GetPulled();
+                    else objS = null;
 				}
 			}
 		}
