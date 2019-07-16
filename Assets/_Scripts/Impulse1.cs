@@ -10,12 +10,13 @@ public class Impulse1 : MonoBehaviour {
 	public Transform objectPos;
 	public PhysicMaterial playerPhysMat;
 	public static Impulse1 instance;
-    [Header("Mana Bar Stuff")]
-    public float maxMana;
-    public float pushCost, pullPlayerCost, pullObjCostIni, pullObjCostHold, manaRecoveryTime, manaRecoveryAmount;
+    [Header("Power Stuff")]
+    public float pushCooldown;
+    public float pullCooldown;
+    private bool canPush = true;
+    private bool canPull = true;
+    private Image canPushImage, canPullImage; 
 
-    private float currMana;
-    private Image manaBar;
     private Rigidbody rb, targetRb;
 	private RaycastHit hit;
 	private Transform camTransform;
@@ -24,15 +25,17 @@ public class Impulse1 : MonoBehaviour {
     private bool drainMana = false;
     private float timeToRecharge = 0f;
 
+
 	private void Awake()
 	{
 		instance = this;
-        manaBar = GameObject.Find("ManaBar").GetComponent<Image>();
-        manaBar.fillAmount = 1.0f;
+        canPushImage = GameObject.Find("CanPushImage").GetComponent<Image>();
+        canPullImage = GameObject.Find("CanPullImage").GetComponent<Image>();
+        canPushImage.color = Color.yellow;
+        canPullImage.color = Color.green;
     }
 
 	void Start () {
-        currMana = maxMana;
         rb = GetComponent<Rigidbody>();
 		camTransform = Camera.main.transform;
 		moveS = FindObjectOfType<Move>();
@@ -59,30 +62,12 @@ public class Impulse1 : MonoBehaviour {
 		{
 			indicator.SetActive(false);
 		}
-
-        if (objS == null)
-        {
-            drainMana = false;
-        }
-        if (drainMana)
-        {
-            currMana -= pullObjCostHold * Time.deltaTime;
-            timeToRecharge = Time.timeSinceLevelLoad + manaRecoveryTime;
-        }
-        else if (timeToRecharge < Time.timeSinceLevelLoad)
-        {
-            currMana += manaRecoveryAmount * Time.deltaTime;
-        }
-        currMana = Mathf.Clamp(currMana, 0f, maxMana);
-        manaBar.fillAmount = currMana/maxMana;
     }
 
 	private void HandlePowerInput(float dist)
 	{
-		if (Input.GetButtonDown("Push") && currMana >= pushCost)
+		if (Input.GetButtonDown("Push") && canPush)
 		{
-            currMana -= pushCost;
-            timeToRecharge = Time.timeSinceLevelLoad + manaRecoveryTime;
             if (objS != null)
 			{
 				objS.CancelPull();
@@ -97,30 +82,28 @@ public class Impulse1 : MonoBehaviour {
 			{
 				targetRb.AddForce(camTransform.forward * pushFObjects, ForceMode.Impulse);
 			}
-		}
-		else if (Input.GetButtonDown("Pull") && currMana >= pullPlayerCost)
+            StartCoroutine(PushToggle());
+        }
+		else if (Input.GetButtonDown("Pull") && canPull)
 		{
-            currMana -= pullPlayerCost;
-            timeToRecharge = Time.timeSinceLevelLoad + manaRecoveryTime;
             objS = null;
 			if (targetRb == null)
 			{
 				NoFriction();
 				rb.AddForce(camTransform.forward * pullFPlayer, ForceMode.Impulse);
+                StartCoroutine(PullToggle());
 			}
 		}
-		else if (Input.GetButton("Pull") && currMana >= pullObjCostIni)
+		else if (Input.GetButton("Pull") && canPull)
 		{
 			if (targetRb != null && objS == null)
 			{
-                if(!drainMana) currMana -= pullObjCostIni;
-                timeToRecharge = Time.timeSinceLevelLoad + manaRecoveryTime;
                 drainMana = true;
                 if (Vector3.Distance(targetRb.transform.position, objectPos.position) > minDistPull)
 				{
 					targetRb.AddForce(-camTransform.forward * pullFObjects, ForceMode.Force);
 					targetRb.velocity = Vector3.ClampMagnitude(targetRb.velocity, maxObjSpeed);
-				}
+                }
 				else
 				{
 					targetRb.velocity = Vector3.zero;
@@ -151,5 +134,23 @@ public class Impulse1 : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 		moveS.canWalk = true;
 	}
+
+    IEnumerator PushToggle()
+    {
+        canPush = false;
+        canPushImage.color = Color.black;
+        yield return new WaitForSeconds(pushCooldown);
+        canPush = true;
+        canPushImage.color = Color.yellow;
+    }
+
+    IEnumerator PullToggle()
+    {
+        canPull = false;
+        canPullImage.color = Color.black;
+        yield return new WaitForSeconds(pullCooldown);
+        canPull = true;
+        canPullImage.color = Color.green;
+    }
 }
  

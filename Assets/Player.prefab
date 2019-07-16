@@ -177,7 +177,7 @@ Transform:
   m_GameObject: {fileID: 7561221128244166124}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.883, y: -0.79999995, z: 1.4360001}
-  m_LocalScale: {x: 0.41373, y: 0.6058665, z: 0.41373023}
+  m_LocalScale: {x: 0.20022462, y: 0.29320908, z: 0.20022474}
   m_Children:
   - {fileID: 7561221129833623119}
   m_Father: {fileID: 7561221129656785416}
@@ -199,7 +199,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7561221128244166124}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -393,8 +393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushFObjects: 90
-  pushFPlayer: 50
-  pullFPlayer: 100
+  pushFPlayer: 200
+  pullFPlayer: 300
   pullFObjects: 1000
   maxDist: 15
   minDistPull: 4
@@ -405,13 +405,8 @@ MonoBehaviour:
   indicator: {fileID: 1197872674}
   objectPos: {fileID: 7561221128612788795}
   playerPhysMat: {fileID: 13400000, guid: 635a969e56f89ae46a279cc1d76b6ccd, type: 2}
-  maxMana: 200
-  pushCost: 20
-  pullPlayerCost: 20
-  pullObjCostIni: 5
-  pullObjCostHold: 10
-  manaRecoveryTime: 1
-  manaRecoveryAmount: 100
+  pushCooldown: 1.5
+  pullCooldown: 1.5
 --- !u!114 &2079503072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,8 +433,7 @@ GameObject:
   - component: {fileID: 7561221128482756041}
   - component: {fileID: 7561221128482756042}
   - component: {fileID: 7561221128482756043}
-  - component: {fileID: 7561221128482756040}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,8 +448,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7561221128482756038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.978, z: 0.289}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.68, z: 0.43}
+  m_LocalScale: {x: 0.6246, y: 0.6246, z: 0.6246}
   m_Children: []
   m_Father: {fileID: 7561221128416658509}
   m_RootOrder: 1
@@ -476,7 +470,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7561221128482756038}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -505,19 +499,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &7561221128482756040
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7561221128482756038}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7561221128514216638
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +621,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7561221129569701451}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -696,7 +677,7 @@ Transform:
   m_GameObject: {fileID: 7561221129643846081}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.883, y: -0.79999995, z: 1.4360001}
-  m_LocalScale: {x: 0.41373, y: 0.6058705, z: 0.41373047}
+  m_LocalScale: {x: 0.20022462, y: 0.293211, z: 0.20022486}
   m_Children:
   - {fileID: 7561221129569701450}
   m_Father: {fileID: 7561221129656785416}
@@ -718,7 +699,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7561221129643846081}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -890,7 +871,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7561221129833623116}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1

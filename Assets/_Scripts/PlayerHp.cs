@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHp : MonoBehaviour
 {
-    public Image hpBar;
+    private Image hpBar;
     public float maxHp, fireBallDmg;
 
     private float currHp;
@@ -13,6 +13,7 @@ public class PlayerHp : MonoBehaviour
 
     void Start()
     {
+        hpBar = GameObject.Find("HpBar").GetComponent<Image>();
         currHp = maxHp;
         hpBar.fillAmount = currHp / maxHp;
         anim = FindObjectOfType<Animator>();

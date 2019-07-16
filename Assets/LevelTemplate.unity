@@ -187,7 +187,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21114
+  m_Name: pb_Mesh15692
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -727,8 +727,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415803452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.4, y: -2.31, z: 9.81}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: -25, y: 0, z: 25}
+  m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 339821223}
   m_RootOrder: 1
@@ -882,7 +882,7 @@ PrefabInstance:
     - target: {fileID: 7561221128416658509, guid: 5f7668ae6f469f64391760ec5730c987,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 7561221128416658509, guid: 5f7668ae6f469f64391760ec5730c987,
         type: 3}
